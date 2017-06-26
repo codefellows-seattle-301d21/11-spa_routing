@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
 const app = express();
 // const conString = 'postgres://USERNAME:PASSWORD@HOST:PORT';
-const conString = 'postgres://USERNAME:PASSWORD@HOST:PORT'; // TODO: Don't forget to set your own conString
+const conString = 'postgress://localhost:5432/kilovolt'; // DONE: Don't forget to set your own conString
 const client = new pg.Client(conString);
 client.connect();
 client.on('error', err => console.error(err));
@@ -43,7 +43,7 @@ app.post('/articles', function(request, response) {
       `SELECT author_id FROM authors WHERE author=$1`,
       [request.body.author],
       function(err, result) {
-        if (err) console.error(err)
+        if (err) console.error(err);
         queryThree(result.rows[0].author_id);
       }
     );
@@ -91,7 +91,7 @@ app.put('/articles/:id', (request, response) => {
         request.body.body,
         request.params.id
       ]
-    )
+    );
   })
   .then(() => response.send('Update complete'))
   .catch(console.error);
