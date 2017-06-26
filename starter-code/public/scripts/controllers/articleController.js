@@ -8,7 +8,7 @@ var app = app || {};
   // Also be sure to hide all the main section elements, and reveal the #articles section:
   articleController.index = () => {
     $('main > section').hide();
-    $('#article').show();
+    $('#articles').show();
   };
 
   module.articleController = articleController;
