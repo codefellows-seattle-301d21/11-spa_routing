@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
 const app = express();
 // const conString = 'postgres://USERNAME:PASSWORD@HOST:PORT';
-const conString = ''; // TODO: Don't forget to set your own conString
+const conString = 'postgres://USERNAME:PASSWORD@HOST:PORT'; // TODO: Don't forget to set your own conString
 const client = new pg.Client(conString);
 client.connect();
 client.on('error', err => console.error(err));
@@ -33,10 +33,10 @@ app.post('/articles', function(request, response) {
     'INSERT INTO authors(author, "authorUrl") VALUES($1, $2) ON CONFLICT DO NOTHING',
     [request.body.author, request.body.authorUrl],
     function(err) {
-      if (err) console.error(err)
-      queryTwo()
+      if (err) console.error(err);
+      queryTwo();
     }
-  )
+  );
 
   function queryTwo() {
     client.query(
@@ -44,9 +44,9 @@ app.post('/articles', function(request, response) {
       [request.body.author],
       function(err, result) {
         if (err) console.error(err)
-        queryThree(result.rows[0].author_id)
+        queryThree(result.rows[0].author_id);
       }
-    )
+    );
   }
 
   function queryThree(author_id) {
@@ -127,8 +127,8 @@ function loadAuthors() {
         [ele.author, ele.authorUrl]
       )
       .catch(console.error);
-    })
-  })
+    });
+  });
 }
 
 function loadArticles() {
@@ -147,10 +147,10 @@ function loadArticles() {
             [ele.title, ele.category, ele.publishedOn, ele.body, ele.author]
           )
           .catch(console.error);
-        })
-      })
+        });
+      });
     }
-  })
+  });
 }
 
 function loadDB() {
