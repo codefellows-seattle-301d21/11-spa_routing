@@ -9,6 +9,6 @@ var app = app || {};
     $('main>section').hide();
     $('#about').show();
   };
-  
+
   module.aboutController = aboutController;
 })(app);
