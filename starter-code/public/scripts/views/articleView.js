@@ -49,7 +49,11 @@ var app = app || {};
     });
   };
 
+<<<<<<< HEAD
   /*DONE: Once the routes are handling '/' and '/about', we can delete
+=======
+  /* DONE: Once the routes are handling '/' and '/about', we can delete
+>>>>>>> b7f4bf8a10bf78909231e37bb89c1df21cf6aa0b
       this handleMainNav function. YESSSS! */
 
   articleView.setTeasers = function() {
@@ -84,7 +88,11 @@ var app = app || {};
     /* DONE: Remember to also remove any invocations of handleMainNav... */
     articleView.populateFilters();
     articleView.handleCategoryFilter();
+<<<<<<< HEAD
     articleView.handleAuthorFilter();
+=======
+    articleView.handleAuthorFilter()
+>>>>>>> b7f4bf8a10bf78909231e37bb89c1df21cf6aa0b
     articleView.setTeasers();
     $('pre code').each((i, block) => hljs.highlightBlock(block));
   };
