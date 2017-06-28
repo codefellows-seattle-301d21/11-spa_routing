@@ -35,7 +35,7 @@ var app = app || {};
 
   Article.numWordsAll = () => {
     return Article.all.map(article => article.body.match(/\b\w+/g).length)
-                      .reduce((a, b) => a + b)
+                      .reduce((a, b) => a + b, 0);
   };
 
   Article.allAuthors = () => {

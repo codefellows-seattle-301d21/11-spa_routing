@@ -9,6 +9,12 @@ var app = app || {};
   articleController.showPage = () => {
     $('main > section').hide();
     $('#articles').show();
+
+    if (app.Article.all.length === 0) {
+      app.Article.fetchAll(app.articleView.initIndexPage);
+    } else {
+      app.articleView.initIndexPage();
+    }
   }
 
   module.articleController = articleController;

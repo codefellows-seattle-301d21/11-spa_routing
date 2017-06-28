@@ -91,7 +91,6 @@ var app = app || {};
     $('pre code').each((i, block) => hljs.highlightBlock(block));
 
     let template = Handlebars.compile($('#author-template').text());
-    console.log(template);
     app.Article.numWordsByAuthor().forEach(stat => {
       $('.author-stats').append(template(stat));
     });
@@ -99,6 +98,5 @@ var app = app || {};
     $('#blog-stats .words').text(app.Article.numWordsAll());
   };
 
-  app.Article.fetchAll(articleView.initIndexPage);
   module.articleView = articleView;
 })(app);
