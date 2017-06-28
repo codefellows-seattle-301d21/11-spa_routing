@@ -12,7 +12,6 @@ var app = app || {};
       $('#blog-stats .words').text(app.Article.numWordsAll());
     }
   };
-
-  app.Article.fetchAll(adminView.initAdminPage);
+  
   module.adminView = adminView;
 })(app);
